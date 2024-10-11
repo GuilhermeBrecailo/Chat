@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     transpile: [ 'vuetify'],
   },
   plugins: [
-    '~/plugins/supabase.js'
+    '~/plugins/supabase.js',
+    '~/plugins/vue3-cookies.js'
   ],
 })

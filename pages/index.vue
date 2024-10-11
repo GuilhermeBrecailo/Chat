@@ -13,9 +13,9 @@
   
   <script setup>
   import { ref } from 'vue';
-  import Mensagens from '@/components/mensagens.vue'; 
-  import Contatos from '@/components/contatos.vue';   
-  import Configuracoes from '@/components/configuracao.vue'; 
+  import Mensagens from '~/components/paginasComponent/mensagens.vue'; 
+  import Contatos from '~/components/paginasComponent/contatos.vue';   
+  import Configuracoes from '~/components/paginasComponent/configuracao.vue'; 
   
   const currentComponent = ref(Mensagens);
   

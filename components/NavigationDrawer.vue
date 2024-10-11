@@ -18,7 +18,7 @@
       <v-spacer></v-spacer>
       <div>
         <v-list-item @click="changeComponent('configuracao')" prepend-icon="mdi-cog" title="Configurações"></v-list-item>
-        <v-list-item to="/login" prepend-icon="mdi-logout" title="Sair"></v-list-item>
+        <v-list-item @click="handleLogout"  prepend-icon="mdi-logout" title="Sair"></v-list-item>
       </div>
         </v-list>
     </v-navigation-drawer>
@@ -27,11 +27,19 @@
 <script setup>
 
 import { defineEmits } from 'vue';
+import { useAuth } from '~/composables/Registro/auth/useAuth';
 
+const { logout } = useAuth();
 const emit = defineEmits()
 
 const changeComponent = (component) => {
   emit('updateComponent', component)
 }
+
+const handleLogout = async() => {
+  await logout()
+  alert('Usuario saiu com sucesso')
+}
+
 
 </script>

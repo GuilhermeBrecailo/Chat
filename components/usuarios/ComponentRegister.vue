@@ -14,12 +14,16 @@
 
 <script setup>
 import { ref } from 'vue';
-import { useAuth } from '~/composables/useAuth';
+import { useAuth } from '~/composables/Registro/auth/useAuth';
 
 const { email, password, name, error, register } = useAuth();
 const confirmPassword = ref('');
 
 const handleRegister = async () => {
+    if (!name.value || !email.value || !password.value || !confirmPassword.value) {
+        error.value = 'Por favor, preencha todos os campos.';
+        return;
+    }
     if (password.value !== confirmPassword.value) {
         error.value = 'As senhas não correspondem.';
         return;
@@ -27,7 +31,7 @@ const handleRegister = async () => {
 
     const user = await register();
     if (user) {
-        alert('Registro bem-sucedido!'); // Você pode redirecionar o usuário ou mostrar uma mensagem.
+        alert('Registro bem-sucedido!'); 
     }
 };
 </script>

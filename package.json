@@ -11,9 +11,11 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.4",
+    "cookie-universal-nuxt": "^2.2.2",
     "nuxt": "^3.13.0",
     "vue": "latest",
     "vue-router": "latest",
+    "vue3-cookies": "^1.0.6",
     "vuetify-nuxt-module": "^0.18.3"
   }
 }

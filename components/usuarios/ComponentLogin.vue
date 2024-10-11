@@ -11,7 +11,7 @@
   </template>
   
   <script setup>
-  import { useAuth } from '~/composables/useAuth';
+  import { useAuth } from '~/composables/Registro/auth/useAuth';
   import { useRouter } from 'vue-router';
   
   const { email, password, error, login } = useAuth();
