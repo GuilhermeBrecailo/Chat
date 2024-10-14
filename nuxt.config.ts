@@ -8,6 +8,10 @@ export default defineNuxtConfig({
   },
   plugins: [
     '~/plugins/supabase.js',
-    '~/plugins/vue3-cookies.js'
+    '~/plugins/vue3-cookies.js',
+    '~/plugins/socket.io.js'
   ],
+  router:{
+    middleware: ['auth']
+  }
 })

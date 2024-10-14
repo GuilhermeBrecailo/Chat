@@ -3,9 +3,9 @@
         
         <v-list>
           <v-list-item
-            prepend-avatar="https://randomuser.me/api/portraits/women/85.jpg"
-            subtitle="teste@gmail.com"
-            title="teste"
+             v-if="userData"
+           :subtitle="userData.email || 'Carregando...'"
+           :title="userData.user_metadata?.name || 'Carregando...'"
           ></v-list-item>
         </v-list>
       <v-divider></v-divider>
@@ -29,7 +29,8 @@
 import { defineEmits } from 'vue';
 import { useAuth } from '~/composables/Registro/auth/useAuth';
 
-const { logout } = useAuth();
+const { userData,logout } = useAuth();
+console.log('userData:', userData.value);
 const emit = defineEmits()
 
 const changeComponent = (component) => {

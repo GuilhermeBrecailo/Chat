@@ -8,6 +8,7 @@ export const useAuth = () => {
     const name = ref('');
     const error = ref('');
     const userData = ref(null)
+    const isAuthenticated = ref(false)
 
     const login = async () => {
         console.log('Tentando login com:', email.value, password.value);
@@ -28,7 +29,10 @@ export const useAuth = () => {
             return null; 
         }
         userData.value = user;
+        console.log('userData após login:', userData.value);
+        
         console.log(user);
+        isAuthenticated.value = true
         return user; 
     };
 
@@ -41,12 +45,21 @@ export const useAuth = () => {
         const { user, error: registerError } = await $supabase.auth.signUp({
             email: email.value,
             password: password.value,
+            
         });
 
         if (registerError) {
             error.value = registerError.message;
             console.error('Erro ao registrar:', registerError);
             return null;
+        }
+
+        const { error: metadataError } = await $supabase.auth.update({
+            data: { name: name.value },
+        });
+    
+        if (metadataError) {
+            console.error('Erro ao atualizar metadados do usuário:', metadataError);
         }
 
         alert("Usuário registrado com sucesso!");
@@ -64,16 +77,34 @@ export const useAuth = () => {
             const { $router } = useNuxtApp();
             $router.push('/');
         }
-        userData.value = user;
+        userData.value = { ...user, user_metadata: { name: name.value } }; 
+        isAuthenticated.value = true
         return user;
     };
+
+
     const logout = async () => {
         const { $supabase } = useNuxtApp();
         const { $router } = useNuxtApp();
         $supabase.auth.signOut(); 
+        isAuthenticated.value = false
         $router.push('/login');
         userData.value = null;
     }
+
+    onMounted(() => {
+        $supabase.auth.onAuthStateChange((event, session) => {
+            if (session) {
+                isAuthenticated.value = true;
+                userData.value = session.user;  
+                console.log("Usuário está autenticado", session.user);
+            } else {
+                isAuthenticated.value = false;
+                userData.value = null;  
+                console.log("Usuário não está autenticado");
+            }
+        });
+    });
 
     return {
         email,
