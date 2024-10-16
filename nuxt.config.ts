@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     '~/plugins/vue3-cookies.js',
     '~/plugins/socket.io.js'
   ],
-  router:{
-    middleware: ['auth']
-  }
+  router: {
+    middleware: ['auth'], 
+  },
 })

@@ -1,4 +1,4 @@
-<template>
+<template >
   <div>
     <v-app>
       <NavigationDrawer @updateComponent="updateComponent" />

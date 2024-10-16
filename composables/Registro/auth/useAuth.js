@@ -54,7 +54,7 @@ export const useAuth = () => {
             return null;
         }
 
-        const { error: metadataError } = await $supabase.auth.update({
+        const { error: metadataError } = await $supabase.auth.updateUser({
             data: { name: name.value },
         });
     

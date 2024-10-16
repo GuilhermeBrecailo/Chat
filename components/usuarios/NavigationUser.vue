@@ -1,11 +1,11 @@
-<template>
-    <v-container>
+<template >
+    <v-container >
       <v-row justify="center" align="center" style="height: 100vh;">
         <v-col cols="12" sm="6">
-          <v-card class="rounded-container" outlined>
+          <v-card class="rounded-container bg-grey-darken-4" outlined>
             <div class="d-flex">
-              <v-btn text @click="showLogin" class="ma-2">Login</v-btn>
-              <v-btn text @click="showRegister" class="ma-2">Registre-se</v-btn>
+              <v-btn text @click="showLogin" class="ma-2 bg-black">Login</v-btn>
+              <v-btn text @click="showRegister" class="ma-2 bg-black" >Registre-se</v-btn>
             </div>
             <v-card-text>
               <component :is="currentComponent" />

@@ -1,6 +1,6 @@
 <template>
-    <v-container>
-      <v-list>
+    <v-container >
+      <v-list class="bg-grey-darken-3">
         <v-list-item-group>
           <v-list-item
             v-for="user in users"
@@ -24,7 +24,10 @@
   <script setup>
   import { ref, onMounted } from 'vue'
 
-  const props = defineProps(['userId']);
+  const props = defineProps({
+  userId: String,
+  updateComponent: Function
+});
   const users = ref([])
   
   const fetchUsers = async () => {
