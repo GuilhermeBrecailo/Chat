@@ -1,0 +1,23 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.46.1",
+    "express": "^4.21.1",
+    "nuxt": "^3.14.159",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1",
+    "vue": "latest",
+    "vue-router": "latest",
+    "vuetify": "^3.7.4",
+    "vuetify-nuxt-module": "^0.18.3"
+  }
+}
