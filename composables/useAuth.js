@@ -123,6 +123,38 @@ export const useAuth = () => {
     }
   }
 
+
+  const update = async (name, email, password) => {
+    try {
+      const userId = userData.value.id
+  
+      const updates = {
+        name,
+        email,
+      }
+  
+      if (password) {
+        updates.password = password 
+      }
+  
+      const { data, error: updateError } = await $supabase
+        .from('users')
+        .update(updates)
+        .eq('id', userId)
+  
+      if (updateError) throw updateError
+  
+      userData.value = { ...userData.value, ...updates }
+      localStorage.setItem('userData', JSON.stringify(userData.value))
+  
+      return { data }
+    } catch (error) {
+      console.error('Erro ao atualizar usuário:', error.message)
+      return { error }
+    }
+  }
+  
+
   const logout = async () => {
     try {
       if ($socket.connected) {
@@ -152,5 +184,6 @@ export const useAuth = () => {
     login,
     register,
     logout,
+    update,
   }
 }

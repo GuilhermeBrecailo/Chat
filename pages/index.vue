@@ -13,18 +13,18 @@
 
 <script setup>
 import { ref } from 'vue';
-import Mensagens from '~/components/paginasComponent/mensagens.vue'; 
 import Contatos from '~/components/paginasComponent/contatos.vue';   
 import Configuracoes from '~/components/paginasComponent/configuracao.vue';
 import MensagemContatos from '~/components/paginasComponent/MensagemContatos.vue';  
+import Dashboard from '~/components/paginasComponent/DashBoard.vue';
 
-const currentComponent = ref(Mensagens);
+const currentComponent = ref();
 const userId = ref(null);
 
 const updateComponent = (componentName, id) => {
   userId.value = id; 
-  if (componentName === 'mensagens') {
-    currentComponent.value = Mensagens; 
+  if (componentName === 'DashBoard') {
+    currentComponent.value = Dashboard; 
   } else if (componentName === 'contatos') {
     currentComponent.value = Contatos; 
   } else if (componentName === 'configuracao') {

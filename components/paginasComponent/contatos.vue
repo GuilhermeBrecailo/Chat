@@ -65,10 +65,7 @@ onMounted(fetchUsers);
     cursor: pointer;
     transition: background-color 0.3s;
   }
-  
-  .user-item:hover {
-    background-color: #f0f0f0;
-  }
+
   
   .v-list-item-title {
     font-weight: bold;

@@ -12,12 +12,12 @@
   
       <v-list density="compact" nav>
         <div>
-        <v-list-item @click="changeComponent('mensagens')" prepend-icon="mdi-message-text" title="Mensagens"></v-list-item>
+        <v-list-item @click="changeComponent('DashBoard')" prepend-icon="mdi-view-dashboard" title="DashBoard"></v-list-item>
         <v-list-item @click="changeComponent('contatos')" prepend-icon="mdi-account-multiple" title="Contatos"></v-list-item>
       </div>
       <v-spacer></v-spacer>
       <div>
-        <v-list-item @click="changeComponent('configuracao')" prepend-icon="mdi-cog" title="Configurações"></v-list-item>
+        <v-list-item @click="changeComponent('configuracao')" prepend-icon="mdi-cog" title="Perfil"></v-list-item>
         <v-list-item @click="handleLogout"  prepend-icon="mdi-logout" title="Sair"></v-list-item>
       </div>
         </v-list>
