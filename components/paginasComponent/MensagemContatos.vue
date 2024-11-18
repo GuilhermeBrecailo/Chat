@@ -83,6 +83,8 @@ const fetchMessages = async () => {
   const { data, error } = await $supabase
     .from('messages')
     .select('*')
+    .or(`senderUid.eq.${userData.value.id},senderUid.eq.${contact.value.id}`)
+    .or(`recipientUid.eq.${userData.value.id},recipientUid.eq.${contact.value.id}`)
     .order('created_at', { ascending: true });
 
   if (error) {
